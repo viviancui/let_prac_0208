@@ -15,6 +15,7 @@ all_divs = soup.find_all('div')
 
 # searching by class
 all_goodbye_elements = soup.find_all(class_='goodbye')
+goodbye_list_items = all_goodbye_elements[0].find_all('li')
 
 # searching by tag AND class
 all_french_list_items = soup.find_all('li', class_='french')
@@ -57,8 +58,16 @@ the_hello_element = soup.find(id='hello-list')
 print(the_hello_element)
 print('------')
 
-
 img_tag = soup.find('img')
 print('The img source:')
 print(img_tag['src'])
 print('------')
+
+for li in goodbye_list_items:
+  print(li.string)
+print('------')
+
+print(img_tag['width'])
+
+the_url = soup.find('a')
+print(the_url.get('href'))
